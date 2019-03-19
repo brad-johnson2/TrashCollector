@@ -40,7 +40,7 @@ namespace TrashCollector.Models
 
         public DbSet<Employee> Emplopyee { get; set; }
 
-        //public DbSet<PickUps> PickUp { get; set; }
+        public DbSet<PickUp> PickUps { get; set; }
     }
 
     
