@@ -183,9 +183,13 @@
     <Compile Include="Migrations\201903191856135_UserRoles.Designer.cs">
       <DependentUpon>201903191856135_UserRoles.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903191909059_UserRoles1.cs" />
+    <Compile Include="Migrations\201903191909059_UserRoles1.Designer.cs">
+      <DependentUpon>201903191909059_UserRoles1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Customers.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -267,6 +271,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201903191856135_UserRoles.resx">
       <DependentUpon>201903191856135_UserRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903191909059_UserRoles1.resx">
+      <DependentUpon>201903191909059_UserRoles1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
