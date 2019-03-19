@@ -187,9 +187,14 @@
     <Compile Include="Migrations\201903191909059_UserRoles1.Designer.cs">
       <DependentUpon>201903191909059_UserRoles1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903191946367_CustomerAndEmployee.cs" />
+    <Compile Include="Migrations\201903191946367_CustomerAndEmployee.Designer.cs">
+      <DependentUpon>201903191946367_CustomerAndEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -274,6 +279,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903191909059_UserRoles1.resx">
       <DependentUpon>201903191909059_UserRoles1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903191946367_CustomerAndEmployee.resx">
+      <DependentUpon>201903191946367_CustomerAndEmployee.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
