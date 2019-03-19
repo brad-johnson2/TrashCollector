@@ -9,7 +9,7 @@ namespace TrashCollector.Models
 
         [Key]
 
-        public int Id { get; set; }
+        public int CustomerId { get; set; }
 
         public string Name { get; set; }
 
@@ -28,14 +28,12 @@ namespace TrashCollector.Models
         public int CustZip { get; set; }
 
 
-        [ForeignKey("PickUpId")]
-        [Display(Name = "Team Name")]
-        public int PickUpId { get; set; }
-        public Team Team { get; set; }
+        
+        
 
-        //[ForeignKey("ApplicationUser")]
-        //public string ApplicationUserId { get; set; }
-        //public ApplicationUser ApplicationUser { get; set; }
+        [ForeignKey("ApplicationUser")]
+        public string ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
 
 
 

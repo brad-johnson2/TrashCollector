@@ -13,8 +13,10 @@ namespace TrashCollector.Models
         public string WeekDay { get; set; }
 
 
-        [ForeignKey("CustomerId")]
-
+        [ForeignKey("Customer")]
         public int CustomerId { get; set; }
+        public Customer Customer { get; set; }
+
+        
     }
 }
