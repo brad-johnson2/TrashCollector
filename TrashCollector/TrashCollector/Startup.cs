@@ -24,6 +24,7 @@ namespace TrashCollector
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
                 role.Name = "Customer";
                 roleManager.Create(role);
+
             }
             if (!roleManager.RoleExists("Employee"))
             {
