@@ -190,6 +190,10 @@
     <Compile Include="Migrations\201903201542241_Attempt.Designer.cs">
       <DependentUpon>201903201542241_Attempt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903201832342_AppUser.cs" />
+    <Compile Include="Migrations\201903201832342_AppUser.Designer.cs">
+      <DependentUpon>201903201832342_AppUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -294,6 +298,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903201542241_Attempt.resx">
       <DependentUpon>201903201542241_Attempt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903201832342_AppUser.resx">
+      <DependentUpon>201903201832342_AppUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
