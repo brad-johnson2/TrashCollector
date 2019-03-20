@@ -165,13 +165,13 @@ namespace TrashCollector.Controllers
                     await this.UserManager.AddToRoleAsync(user.Id, model.UserRole);
                     if (user.UserRole == "Customer")
                     {
-                        return RedirectToAction("Index", "Customer");
+                        return RedirectToAction("Create", "Customers");
                     }
                     if (user.UserRole == "Employee")
                     {
-                        return RedirectToAction("Index", "Employee");
+                        return RedirectToAction("Create", "Employees");
                     }
-                    return RedirectToAction("Index", "Home");
+                    else return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
             }
