@@ -8,17 +8,18 @@ namespace TrashCollector.Models
 
         [Key]
 
-        public int EmployeeId { get; set; }
+        public int Id { get; set; }
 
         public string Name { get; set; }
-        
+
+        [Display(Name = "Zip Code Area")]
         public int EmpZip { get; set; }
 
 
 
-        [ForeignKey("ApplicationUser")]
-        public string ApplicationUserId { get; set; }
-        public ApplicationUser ApplicationUser { get; set; }
+        //[ForeignKey("ApplicationUser")]
+        //public string ApplicationUserId { get; set; }
+        //public ApplicationUser ApplicationUser { get; set; }
 
     }
 }

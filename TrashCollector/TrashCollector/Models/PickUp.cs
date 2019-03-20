@@ -10,6 +10,7 @@ namespace TrashCollector.Models
 
         public int Id { get; set; }
 
+        [Display(Name = "Pick Up Day (i.e. Monday)")]
         public string WeekDay { get; set; }
 
 
