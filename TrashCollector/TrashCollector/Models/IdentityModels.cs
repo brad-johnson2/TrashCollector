@@ -42,7 +42,7 @@ namespace TrashCollector.Models
 
         public DbSet<PickUp> PickUps { get; set; }
 
-        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
     }
 
     
