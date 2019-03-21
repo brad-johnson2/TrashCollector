@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -23,11 +24,16 @@ namespace TrashCollector.Controllers
         // GET: Customers/Details/5
         public ActionResult Details(int? id)
         {
+            var FoundUserId = User.Identity.GetUserId();
+
+            Customer customer = db.Customers.Include(m => m.ApplicationUser).Where(c => c.ApplicationUserId == FoundUserId).FirstOrDefault();
+            
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
+            //Customer customer = db.Customers.Find(id);
             if (customer == null)
             {
                 return HttpNotFound();
@@ -46,7 +52,7 @@ namespace TrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,AccountBalance,SuspendStart,SuspendEnd,Address,City,State,CustZip")] Customer customer)
+        public ActionResult Create([Bind(Include = "Id,Name,AccountBalance,SuspendStart,SuspendEnd,Address,City,State,CustZip,ApplicationUserId")] Customer customer)
         {
             if (ModelState.IsValid)
             {
