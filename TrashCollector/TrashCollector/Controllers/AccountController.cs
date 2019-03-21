@@ -453,11 +453,20 @@ namespace TrashCollector.Controllers
 
         private ActionResult RedirectToLocal(string returnUrl)
         {
-            if (Url.IsLocalUrl(returnUrl))
-            {
-                return Redirect(returnUrl);
-            }
-            return RedirectToAction("Index", "Home");
+      
+                if (this.User.IsInRole("Customer"))
+                {
+                return RedirectToAction("Details", "Customers");
+                }
+                else if (this.User.IsInRole("Employee"))
+                {
+                return RedirectToAction("Details", "Employees");
+                }
+                else
+                {
+                return RedirectToAction("Index", "Home");
+                }
+            
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult
