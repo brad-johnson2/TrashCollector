@@ -35,7 +35,7 @@ namespace TrashCollector.Controllers
                 var FoundCustomer = db.Customers.Where(c => c.ApplicationUserId == FoundUserId).FirstOrDefault();
                 return View(FoundCustomer);
 
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             //Customer customer = db.Customers.Find(id);
             if (customer == null)
@@ -80,9 +80,9 @@ namespace TrashCollector.Controllers
             if (id == null)
             {
 
-                //var FoundUserId = User.Identity.GetUserId();
-                //var FoundCustomer = db.Customers.Where(c => c.ApplicationUserId == FoundUserId).FirstOrDefault();
-                //return View(FoundCustomer);
+                var FoundUserId = User.Identity.GetUserId();
+                var FoundCustomer = db.Customers.Where(c => c.ApplicationUserId == FoundUserId).FirstOrDefault();
+                return View(FoundCustomer);
 
                 //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }

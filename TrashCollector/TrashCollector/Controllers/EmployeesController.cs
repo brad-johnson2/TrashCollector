@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -23,11 +24,18 @@ namespace TrashCollector.Controllers
         // GET: Employees/Details/5
         public ActionResult Details(int? id)
         {
+            var FoundUserId = User.Identity.GetUserId();
+
+            Employee employee = db.Employees.Include(m => m.ApplicationUser).Where(c => c.ApplicationUserId == FoundUserId).FirstOrDefault();
+
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                var FoundEmployee = db.Employees.Where(c => c.ApplicationUserId == FoundUserId).FirstOrDefault();
+                return View(FoundEmployee);
+
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Employee employee = db.Employees.Find(id);
+            
             if (employee == null)
             {
                 return HttpNotFound();
@@ -38,6 +46,11 @@ namespace TrashCollector.Controllers
         // GET: Employees/Create
         public ActionResult Create()
         {
+            Employee employee = new Employee();
+            var FoundUserId = User.Identity.GetUserId();
+
+            employee.ApplicationUserId = FoundUserId;
+            db.SaveChanges();
             return View();
         }
 

@@ -35,7 +35,8 @@
     {
         <li>@Html.ActionLink("Home", "Index", "Home")</li>
         <li>@Html.ActionLink("Trash Pickups", "Details", "Customers") </li>
-        
+        <li>@Html.ActionLink("Set Trash Day", "Edit", "PickUps")</li>
+
     }
     @if (User.IsInRole("Employee"))
     {
