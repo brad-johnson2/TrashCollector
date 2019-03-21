@@ -198,6 +198,10 @@
     <Compile Include="Migrations\201903211555300_AnotherOne.Designer.cs">
       <DependentUpon>201903211555300_AnotherOne.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903212010081_EmployeeCRUD.cs" />
+    <Compile Include="Migrations\201903212010081_EmployeeCRUD.Designer.cs">
+      <DependentUpon>201903212010081_EmployeeCRUD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -279,6 +283,7 @@
     <Content Include="Views\Employees\Details.cshtml" />
     <Content Include="Views\Employees\Edit.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\Employees\Route.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -308,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903211555300_AnotherOne.resx">
       <DependentUpon>201903211555300_AnotherOne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903212010081_EmployeeCRUD.resx">
+      <DependentUpon>201903212010081_EmployeeCRUD.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

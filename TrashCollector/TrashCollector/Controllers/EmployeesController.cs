@@ -36,10 +36,10 @@ namespace TrashCollector.Controllers
                 //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             
-            if (employee == null)
-            {
-                return HttpNotFound();
-            }
+            //if (employee == null)
+            //{
+            //    return HttpNotFound();
+            //}
             return View(employee);
         }
 
@@ -59,7 +59,7 @@ namespace TrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,EmpZip")] Employee employee)
+        public ActionResult Create([Bind(Include = "Id,Name,EmpZip,ApplicationUserId")] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -76,7 +76,9 @@ namespace TrashCollector.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                var FoundUserId = User.Identity.GetUserId();
+                var FoundEmployee = db.Employees.Where(c => c.ApplicationUserId == FoundUserId).FirstOrDefault();
+                return View(FoundEmployee);
             }
             Employee employee = db.Employees.Find(id);
             if (employee == null)

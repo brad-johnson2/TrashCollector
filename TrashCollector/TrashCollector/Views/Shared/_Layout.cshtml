@@ -24,7 +24,7 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Index", "Index", "Customers")</li>
+                    <li>@Html.ActionLink("Customers", "Index", "Customers")</li>
                     <li>@Html.ActionLink("Employees", "Index", "Employees")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -34,7 +34,7 @@
     @if (User.IsInRole("Customer"))
     {
         <li>@Html.ActionLink("Home", "Index", "Home")</li>
-        <li>@Html.ActionLink("Trash Pickups", "Details", "Customers") </li>
+        <li>@Html.ActionLink("Account Details", "Details", "Customers") </li>
         <li>@Html.ActionLink("Set Trash Day", "Edit", "PickUps")</li>
 
     }
