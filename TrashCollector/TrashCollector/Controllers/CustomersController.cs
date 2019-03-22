@@ -68,7 +68,7 @@ namespace TrashCollector.Controllers
             {
                 db.Customers.Add(customer);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create", "PickUps");
             }
 
             return View(customer);
