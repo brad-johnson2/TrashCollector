@@ -88,16 +88,19 @@ namespace TrashCollector.Controllers
             {
                 db.Entry(pickUp).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                if (pickUp.PickUpComplete == true)
+                {
+                    Customer customer = db.Customers.Where(n => n.Id == pickUp.CustomerId).SingleOrDefault();
+                    customer.AccountBalance += 10;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
+
+        ViewBag.CustomerId = new SelectList(db.Customers, "Id", "Name", pickUp.CustomerId);
+               
+        return View(pickUp);
             
-            ViewBag.CustomerId = new SelectList(db.Customers, "Id", "Name", pickUp.CustomerId);
-            if (pickUp.PickUpComplete == true)
-            {
-                Customer customer = db.Customers.Where(n => n.Id == pickUp.CustomerId).SingleOrDefault();
-                customer.AccountBalance += 10;
-            }
-            return View(pickUp);
         }
 
         // GET: PickUps/Delete/5

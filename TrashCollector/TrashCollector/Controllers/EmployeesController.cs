@@ -21,8 +21,11 @@ namespace TrashCollector.Controllers
             var FoundUserId = User.Identity.GetUserId();
             var employeeUser = db.Employees.Where(x => x.ApplicationUserId == FoundUserId).FirstOrDefault();
             var DayPickUps = db.PickUps.Where(p => p.Customer.CustZip == employeeUser.EmpZip);
+            DayOfWeek weekDay = DateTime.Today.DayOfWeek;
+            string weekDayTwo = weekDay.ToString();
+            var TheDayPickUps = DayPickUps.Where(d => d.WeekDay == weekDayTwo);
 
-            return View(DayPickUps.ToList());
+            return View(TheDayPickUps.ToList());
         }
 
         // GET: Employees/Details/5
