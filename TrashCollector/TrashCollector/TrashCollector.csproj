@@ -206,6 +206,10 @@
     <Compile Include="Migrations\201903221516535_EmployeeRoute.Designer.cs">
       <DependentUpon>201903221516535_EmployeeRoute.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903221654157_NewPickUp.cs" />
+    <Compile Include="Migrations\201903221654157_NewPickUp.Designer.cs">
+      <DependentUpon>201903221654157_NewPickUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -277,17 +281,17 @@
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Customers\Edit.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
-    <Content Include="Views\PickUps\Create.cshtml" />
-    <Content Include="Views\PickUps\Delete.cshtml" />
-    <Content Include="Views\PickUps\Details.cshtml" />
-    <Content Include="Views\PickUps\Edit.cshtml" />
-    <Content Include="Views\PickUps\Index.cshtml" />
     <Content Include="Views\Employees\Create.cshtml" />
     <Content Include="Views\Employees\Delete.cshtml" />
     <Content Include="Views\Employees\Details.cshtml" />
     <Content Include="Views\Employees\Edit.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
     <Content Include="Views\Employees\Route.cshtml" />
+    <Content Include="Views\PickUps\Create.cshtml" />
+    <Content Include="Views\PickUps\Delete.cshtml" />
+    <Content Include="Views\PickUps\Details.cshtml" />
+    <Content Include="Views\PickUps\Edit.cshtml" />
+    <Content Include="Views\PickUps\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -323,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903221516535_EmployeeRoute.resx">
       <DependentUpon>201903221516535_EmployeeRoute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903221654157_NewPickUp.resx">
+      <DependentUpon>201903221654157_NewPickUp.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

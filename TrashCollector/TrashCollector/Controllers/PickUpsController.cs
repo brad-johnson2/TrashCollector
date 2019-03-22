@@ -48,17 +48,17 @@ namespace TrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,WeekDay,CustomerId")] PickUp pickUp)
+        public ActionResult Create([Bind(Include = "Id,WeekDay,CustomPickUp,PickUpComplete,CustomerId")] PickUp pickUp)
         {
             if (ModelState.IsValid)
             {
                 db.PickUps.Add(pickUp);
                 db.SaveChanges();
-                return RedirectToAction("Details", "Customer");
+                return RedirectToAction("Index");
             }
 
             ViewBag.CustomerId = new SelectList(db.Customers, "Id", "Name", pickUp.CustomerId);
-            return RedirectToAction("Details", "Customer");
+            return View(pickUp);
         }
 
         // GET: PickUps/Edit/5
@@ -82,7 +82,7 @@ namespace TrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,WeekDay,CustomerId")] PickUp pickUp)
+        public ActionResult Edit([Bind(Include = "Id,WeekDay,CustomPickUp,PickUpComplete,CustomerId")] PickUp pickUp)
         {
             if (ModelState.IsValid)
             {
