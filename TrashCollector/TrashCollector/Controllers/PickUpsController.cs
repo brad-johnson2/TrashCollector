@@ -90,7 +90,13 @@ namespace TrashCollector.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            
             ViewBag.CustomerId = new SelectList(db.Customers, "Id", "Name", pickUp.CustomerId);
+            if (pickUp.PickUpComplete == true)
+            {
+                Customer customer = db.Customers.Where(n => n.Id == pickUp.CustomerId).SingleOrDefault();
+                customer.AccountBalance += 10;
+            }
             return View(pickUp);
         }
 
