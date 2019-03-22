@@ -54,11 +54,11 @@ namespace TrashCollector.Controllers
             {
                 db.PickUps.Add(pickUp);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Customer");
             }
 
             ViewBag.CustomerId = new SelectList(db.Customers, "Id", "Name", pickUp.CustomerId);
-            return View(pickUp);
+            return RedirectToAction("Details", "Customer");
         }
 
         // GET: PickUps/Edit/5
