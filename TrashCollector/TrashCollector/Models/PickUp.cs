@@ -13,6 +13,12 @@ namespace TrashCollector.Models
         [Display(Name = "Pick Up Day (i.e. Monday)")]
         public string WeekDay { get; set; }
 
+        [Display(Name = "Add Additional Pick Up Day?")]
+        public bool CustomPickUp { get; set; }
+
+        [Display(Name = "Pick Up Complete?")]
+        public bool PickUpComplete { get; set; }
+
 
         [ForeignKey("Customer")]
         public int CustomerId { get; set; }

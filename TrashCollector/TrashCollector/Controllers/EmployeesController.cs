@@ -18,7 +18,11 @@ namespace TrashCollector.Controllers
         // GET: Employees
         public ActionResult Index()
         {
-            return View(db.Employees.ToList());
+            var FoundUserId = User.Identity.GetUserId();
+            var employeeUser = db.Employees.Where(x => x.ApplicationUserId == FoundUserId).FirstOrDefault();
+            var DayPickUps = db.PickUps.Where(p => p.Customer.CustZip == employeeUser.EmpZip);
+
+            return View(DayPickUps.ToList());
         }
 
         // GET: Employees/Details/5
@@ -51,7 +55,7 @@ namespace TrashCollector.Controllers
 
             employee.ApplicationUserId = FoundUserId;
             db.SaveChanges();
-            return View();
+            return View(employee);
         }
 
         // POST: Employees/Create
