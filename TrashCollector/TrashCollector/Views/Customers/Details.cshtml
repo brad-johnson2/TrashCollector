@@ -79,12 +79,12 @@
 
 
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, null) |
     @Html.ActionLink("Back to List", "Index")
 </p>
 
 
-<body>
+@*<body>*@
 
     <h3>Pick Up Location</h3>
 
@@ -106,6 +106,7 @@
 
 
     <script>
+        console.log(@Html.ViewBag.Address);
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 8,
@@ -120,7 +121,7 @@
 
         function geocodeAddress(geocoder, resultsMap) {
             //var address = document.getElementById('address').value;
-            geocoder.geocode({ 'address': 'model.address', 'zip' : 'model.CustZip' }, function (results, status) {
+            geocoder.geocode({ 'address': '@Html.ViewBag.Address', 'zip' : '@Html.ViewBag.CustZip' }, function (results, status) {
                 if (status === 'OK') {
                     resultsMap.setCenter(results[0].geometry.location);
                     var marker = new google.maps.Marker({
@@ -137,5 +138,5 @@
             src="https://maps.googleapis.com/maps/api/js?key=@($"{Key.GoogleMapsKey}")&callback=initMap">
     </script>
 
-</body>
+@*</body>*@
 

@@ -33,6 +33,8 @@ namespace TrashCollector.Controllers
             {
           
                 var FoundCustomer = db.Customers.Where(c => c.ApplicationUserId == FoundUserId).FirstOrDefault();
+                ViewBag.Address = FoundCustomer.Address;
+                ViewBag.Zip = FoundCustomer.CustZip;
                 return View(FoundCustomer);
 
                 //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
