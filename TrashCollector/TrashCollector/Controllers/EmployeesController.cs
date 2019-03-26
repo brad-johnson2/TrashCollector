@@ -22,10 +22,12 @@ namespace TrashCollector.Controllers
             var employeeUser = db.Employees.Where(x => x.ApplicationUserId == FoundUserId).FirstOrDefault();
             var DayPickUps = db.PickUps.Where(p => p.Customer.CustZip == employeeUser.EmpZip);
             DayOfWeek weekDay = DateTime.Today.DayOfWeek;
+            DateTime thisDay = DateTime.Today;
             string weekDayTwo = weekDay.ToString();
             var TheDayPickUps = DayPickUps.Where(d => d.WeekDay == weekDayTwo);
+            var FinalPickUps = TheDayPickUps.Where(f => f.Customer.SuspendStart < thisDay && f.Customer.SuspendEnd > thisDay);
 
-            return View(TheDayPickUps.ToList());
+            return View(FinalPickUps.ToList());
         }
 
         // GET: Employees/Details/5

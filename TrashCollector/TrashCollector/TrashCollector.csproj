@@ -292,6 +292,7 @@
     <Content Include="Views\PickUps\Details.cshtml" />
     <Content Include="Views\PickUps\Edit.cshtml" />
     <Content Include="Views\PickUps\Index.cshtml" />
+    <Content Include="Views\Employees\Monday.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
