@@ -25,9 +25,9 @@ namespace TrashCollector.Controllers
             DateTime thisDay = DateTime.Today;
             string weekDayTwo = weekDay.ToString();
             var TheDayPickUps = DayPickUps.Where(d => d.WeekDay == weekDayTwo);
-            var FinalPickUps = TheDayPickUps.Where(f => f.Customer.SuspendStart < thisDay && f.Customer.SuspendEnd > thisDay);
+            //var FinalPickUps = TheDayPickUps.Where(f => f.Customer.SuspendStart < thisDay && f.Customer.SuspendEnd > thisDay);
 
-            return View(FinalPickUps.ToList());
+            return View(TheDayPickUps.ToList());
         }
 
         // GET: Employees/Details/5
